@@ -12,10 +12,13 @@ RUN apt update && \
     libxcb-sync-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev \
     libxcb-render-util0-dev libxcb-util-dev libxcb-xinerama0-dev libxcb-xkb-dev \
     libxkbcommon-dev libxkbcommon-x11-dev
+
+RUN apt update && \
+    apt install -y stlink-tools
 RUN locale-gen en_US.UTF-8
 # UI pip packages
 RUN pip3 install pyside6 qt_material
 # Development dependencies
 RUN pip3 install jinja2 tqdm pytest pytest-cov pytest-xdist black
 # Documentation dependencies
-RUN pip3 install sphinx breathe myst-parser furo
+RUN pip3 install sphinx breathe myst-parser furo snooty-lextudio rstcheck
